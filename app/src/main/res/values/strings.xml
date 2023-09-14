@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CalculaIMCConstraint</string>
+    <string name="peso">Peso</string>
+    <string name="hint_peso">Peso em kg</string>
+    <string name="altura">Altura</string>
+    <string name="hint_altura">Altura em metros</string>
+    <string name="imc">IMC</string>
+    <string name="zeros">0.0\n</string>
+    <string name="calcular">Calcular</string>
+    <string name="limpar">Limpar</string>
+    <string name="error_peso">Peso invalido</string>
+    <string name="error_altura">Altura invalida</string>
+</resources>

@@ -1,0 +1,69 @@
+import kotlin.math.PI
+fun main() {
+    val squareCabin = SquareCabin(6,50.0)
+    
+    with(squareCabin){
+        println("===============")
+        println("Capacity: ${capacity}")
+        println("Building Material: ${buildingMaterial}")
+        println("Has room: ${hasRoom()}")
+        println("Floor Area: ${floorArea()}")
+    }
+    
+    val roundHut = RoundHut(3, 10.0)
+    with(roundHut){
+        println("===============")
+        println("Capacity: ${capacity}")
+        println("Building Material: ${buildingMaterial}")
+        println("Has room: ${hasRoom()}")
+        println("Floor Area: ${floorArea()}")
+    }
+    
+    val roundTower = RoundTower(4, 15.5)
+    with(roundTower){
+        println("===============")
+        println("Capacity: ${capacity}")
+        println("Building Material: ${buildingMaterial}")
+        println("Has room: ${hasRoom()}")
+        println("Floor Area: ${floorArea()}")
+    }
+}
+
+abstract class Dwelling(private var residents : Int){
+    abstract val buildingMaterial : String
+    abstract val capacity : Int
+    
+    abstract fun floorArea() : Double
+    
+    public fun hasRoom() : Boolean{
+		return (residents < capacity)
+    }
+}
+
+class SquareCabin (residents:Int, val lenght:Double) : Dwelling(residents){
+    override val buildingMaterial = "Wood"
+    override val capacity = 6
+    
+    override public floorArea() : Double{
+        return lenght*lenght
+    }
+    
+}
+
+open class RoundHut (residents:Int, val radius:Double):Dwelling(residents){
+    override val buildingMaterial = "Straw"
+    override val capacity = 4
+    
+    override public floorArea() : Double{
+		return PI*radius*radius
+    }
+}
+
+class RoundTower(residents:Int, val floors : Int = 2, val radius:Double):RoundHut(residents){
+    override val buildingMaterial = "Stone"
+    override val capacity = 4 * floors
+    
+    override public floorArea() : Double{
+		return PI*radius*radius
+    }
+}
